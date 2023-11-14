@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Ahmad Nabil's Website</title>
+    <style>
+        body {
+            background-image: url(download.jpeg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-image 1s ease;
+            
+        }
+        .container-main {
+            background-color: transparent;
+            box-shadow: 0 0 18px 26px rgba(0, 0, 0, 0.6);
+            display: flex;flex-direction: column;align-items: center;
+            overflow: hidden;
+            height: 530px;
+            border-radius: 10px;
+            scroll-behavior: smooth;
+        }
+        .container {
+            background-color: transparent;
+            padding: 20px;
+            height: 420px;width: 45vh;
+            text-align: center;   
+        }
+        input {
+            padding: 15px 15px 5px 5px;
+            margin: 10px;
+            outline: none;
+            border: none;
+            border-bottom:4px solid whitesmoke;
+            border-radius: 2px;
+            width: 80%;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: lightgray;
+            font-size: 3vh;
+        }
+        button.sub{
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: whitesmoke;
+            color: lightgray;
+            font-size: 3vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 80%;
+        }
+        button.res{
+            padding: 0px;
+            margin: 0px;
+            margin-top: 3vh;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: lightgray;
+            font-size:3vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 60%;
+        }
+        button.sub:hover {
+            background-color: rgb(155, 33, 17);
+        }
+        h3 {
+            margin: 0;
+            position: relative;
+            top: 3.5vh;right:11vh;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-main">
+        <div class="container" id="1">
+            <h1 style="color: whitesmoke; margin-bottom: 10px;">Register</h1>
+            <p style="color: whitesmoke; margin: 0;">Already Have an Account? click here<a style="color: lightgray;text-decoration: none;" href="#2">LOGIN</a></p>
+            <form action="#" method="post">
+                <h3>Username</h3>
+                <input type="text" id="user1" name="user" required>
+                <h3 style="position: relative;right: 14vh;">Email</h3>
+                <input type="email" id="email1" name="email" required>
+                <h3>Password</h3>
+                <input type="password" id="password1" name="password" required>
+                <br>
+                <button type="submit" onclick="saveData()" class="sub" id="sav_btn">Register</button>
+                <button type="reset" class="res">Reset</button>
+            </form>
+        </div>
+        <div class="container" style="padding-top: 20vh;padding-bottom: 10vh;" >
+            <h1 style="color: whitesmoke;margin-bottom: 10px;">Login</h1>
+            <p style="color: whitesmoke; margin: 0;">Dont Have an Account? click here<a style="color: lightgray;text-decoration: none;" href="#1">REGISTER</a></p>
+            <form action="#" method="post">
+                <h3 id="2" style="position: relative;right: 14vh;">Email</h3>
+                <input type="email" id="email2" name="email" required>
+                <h3>Password</h3>
+                <input type="password" id="password2" name="password" required>
+                <br>
+                <button type="submit" onclick="saveData1()" class="sub">Login</button>
+                <button type="reset" class="res">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function saveData(){
+        let user=document.getElementById("user1").value;
+        let email=document.getElementById("email1").value;
+        let password=document.getElementById("password1").value;
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_records.some((v)=>{
+            return v.email == email;
+        })){
+            alert("Duplicate Data");
+        }
+        else{
+            alert("Successfully Registered");
+            user_records.push({
+                "user":user,
+                "email":email,
+                "password":password
+            })
+            localStorage.setItem("users",JSON.stringify(user_records));
+        }
+    }
+    function saveData1(){
+        let email=document.getElementById("email2").value;
+        let password=document.getElementById("password2").value;
+        let user_record = new Array();
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_record.some((v)=>{
+            return v.email==email && v.password==password;
+        })){
+            alert("Login Successfull");
+            let current_user=user_record.filter((v)=>{
+                return v.email==email && v.password==password;
+            })[0]
+            localStorage.setItem("user", current_user.user);
+            localStorage.setItem("email", current_user.email);
+            window.location.href="home.html";
+        }
+        else {
+            alert("Login Failed");
+        }
+    }
+</script>
+</html>
