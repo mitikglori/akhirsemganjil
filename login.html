@@ -76,10 +76,10 @@
         <h1 style="color: #E44059;margin-bottom: 10px;">Login</h1>
         <p style="color: #E44059; margin: 0;">Dont Have an Account? click here<a style="color: darkmagenta;" href="register.html">REGISTER</a></p>
         <form action="#" method="post">
-            <h3>Username</h3>
-            <input type="text" name="Ahmad Nabil" required>
+            <h3 style="position: relative;right: 14vh;">Email</h3>
+            <input type="email" id="email" name="email" required>
             <h3>Password</h3>
-            <input type="password" name="101208" required>
+            <input type="password" id="password" name="password" required>
             <br>
             <button type="submit" onclick="saveData()" class="sub">Login</button>
             <button type="reset" class="res">Reset</button>
@@ -88,21 +88,20 @@
 </body>
 <script>
     function saveData(){
-        let user=document.getElementById("user").value;
         let email=document.getElementById("email").value;
         let password=document.getElementById("password").value;
         let user_record = new Array();
-        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getIte("users")):[]
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
         if(user_record.some((v)=>{
             return v.email==email && v.password==password
         })){
-            alert("Login Successffull")
+            alert("Login Successfull");
             let current_user=user_record.filter((v)=>{
                 return v.email==email && v.password==password
             })[0]
             localStorage.setItem("user", current_user.user);
             localStorage.setItem("email", current_user.email);
-            window.location.href="profile.html";
+            window.location.href="home.html";
         }
         else {
             alert("Login Failed");
