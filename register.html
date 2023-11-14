@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Ahmad Nabil's Website</title>
+    <style>
+        body {
+            background-image: url('gyarados.jpg');
+            background-size: cover;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: transparent;
+            padding: 20px;
+            min-width: 45vh;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            padding: 15px 15px 5px 5px;
+            margin: 10px;
+            outline: none;
+            border: none;
+            border-bottom:4px solid orangered;
+            border-radius: 2px;
+            width: 80%;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: darkmagenta;
+            font-size: 3vh;
+        }
+        button.sub{
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74343;
+            color: darkmagenta;
+            font-size: 3vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 80%;
+        }
+        button.res{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: darkmagenta;
+            font-size:2vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 60%;
+        }
+        button.sub:hover {
+            background-color: rgb(155, 33, 17);
+        }
+        h3 {
+            margin: 0;
+            position: relative;
+            top: 3.5vh;right:11vh;
+            color: #E44059;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #E44059; margin-bottom: 10px;">Register</h1>
+        <p style="color: #E44059; margin: 0;">Already Have an Account? click here<a style="color: darkmagenta;" href="login.html">LOGIN</a></p>
+        <form action="#" method="post">
+            <h3>Username</h3>
+            <input type="text" id="user" name="user" required>
+            <h3 style="position: relative;right: 14vh;">Email</h3>
+            <input type="email" id="email" name="email" required>
+            <h3>Password</h3>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit" onclick="saveData()" class="sub" id="sav_btn">Register</button>
+            <button type="reset" class="res">Reset</button>
+        </form>
+    </div>
+</body>
+<script>
+    function saveData(){
+        let user=document.getElementById("user").value;
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("password").value;
+        let user_records=new Array();
+        user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_records.some((v)=>{
+            return v.email == email;
+        })){
+            alert("Duplicate Data");
+        }
+        else{
+            user_records.push({
+                "user":user,
+                "email":email,
+                "password":password
+            })
+            localStorage.setItem("users",JSON.stringify(user_records));
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Ahmad Nabil's Website</title>
+    <style>
+        body {
+            background-image: url('gyarados.jpg');
+            background-size: cover;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: transparent;
+            padding: 20px;
+            min-width: 45vh;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            padding: 15px 15px 5px 5px;
+            margin: 10px;
+            outline: none;
+            border: none;
+            border-bottom:4px solid orangered;
+            border-radius: 2px;
+            width: 80%;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: darkmagenta;
+            font-size: 3vh;
+        }
+        button.sub{
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74343;
+            color: darkmagenta;
+            font-size: 3vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 80%;
+        }
+        button.res{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: darkmagenta;
+            font-size:2vh;
+            font-weight: bolder;
+            cursor: pointer;
+            width: 60%;
+        }
+        button.sub:hover {
+            background-color: rgb(155, 33, 17);
+        }
+        h3 {
+            margin: 0;
+            position: relative;
+            top: 3.5vh;right:11vh;
+            color: #E44059;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #E44059;margin-bottom: 10px;">Login</h1>
+        <p style="color: #E44059; margin: 0;">Dont Have an Account? click here<a style="color: darkmagenta;" href="register.html">REGISTER</a></p>
+        <form action="#" method="post">
+            <h3>Username</h3>
+            <input type="text" name="Ahmad Nabil" required>
+            <h3>Password</h3>
+            <input type="password" name="101208" required>
+            <br>
+            <button type="submit" onclick="saveData()" class="sub">Login</button>
+            <button type="reset" class="res">Reset</button>
+        </form>
+    </div>
+</body>
+<script>
+    function saveData(){
+        let user=document.getElementById("user").value;
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("password").value;
+        let user_record = new Array();
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getIte("users")):[]
+        if(user_record.some((v)=>{
+            return v.email==email && v.password==password
+        })){
+            alert("Login Successffull")
+            let current_user=user_record.filtter((v)=>{
+                return v.email==email && v.password==password
+            })[0]
+            localStorage.setItem("user", current_user.user);
+            localStorage.setItem("email", current_user.email);
+            window.location.href="profile.html";
+        }
+        else {
+            alert("Login Failed");
+        }
+    }
+</script>
+</html>
