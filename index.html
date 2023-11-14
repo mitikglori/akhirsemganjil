@@ -21,7 +21,7 @@
         }
         .container-main {
             background-color: transparent;
-            box-shadow: 0 0 18px 26px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
             display: flex;flex-direction: column;align-items: center;
             overflow: hidden;
             height: 530px;
@@ -39,7 +39,7 @@
             margin: 10px;
             outline: none;
             border: none;
-            border-bottom:4px solid whitesmoke;
+            border-bottom:4px solid salmon;
             border-radius: 2px;
             width: 80%;
             box-sizing: border-box;
@@ -53,7 +53,7 @@
             border: none;
             border-radius: 5px;
             background-color: whitesmoke;
-            color: lightgray;
+            color: salmon;
             font-size: 3vh;
             font-weight: bolder;
             cursor: pointer;
@@ -66,14 +66,18 @@
             border: none;
             border-radius: 5px;
             background-color: transparent;
-            color: lightgray;
+            color: salmon;
             font-size:3vh;
             font-weight: bolder;
             cursor: pointer;
             width: 60%;
         }
         button.sub:hover {
-            background-color: rgb(155, 33, 17);
+            background-color: salmon;
+            color: whitesmoke;
+        }
+        button.res:hover {
+            color: red;
         }
         h3 {
             margin: 0;
@@ -85,9 +89,9 @@
 </head>
 <body>
     <div class="container-main">
-        <div class="container" id="1">
+        <div class="container" id="register">
             <h1 style="color: whitesmoke; margin-bottom: 10px;">Register</h1>
-            <p style="color: whitesmoke; margin: 0;">Already Have an Account? click here<a style="color: lightgray;text-decoration: none;" href="#2">LOGIN</a></p>
+            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Already Have an Account? Click Here <a style="color: salmon;text-decoration: none;" href="#login">LOGIN</a></p>
             <form action="#" method="post">
                 <h3>Username</h3>
                 <input type="text" id="user1" name="user" required>
@@ -97,20 +101,19 @@
                 <input type="password" id="password1" name="password" required>
                 <br>
                 <button type="submit" onclick="saveData()" class="sub" id="sav_btn">Register</button>
-                <button type="reset" class="res">Reset</button>
             </form>
         </div>
         <div class="container" style="padding-top: 20vh;padding-bottom: 10vh;" >
             <h1 style="color: whitesmoke;margin-bottom: 10px;">Login</h1>
-            <p style="color: whitesmoke; margin: 0;">Dont Have an Account? click here<a style="color: lightgray;text-decoration: none;" href="#1">REGISTER</a></p>
+            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Dont Have an Account? Click Here <a style="color: salmon;text-decoration: none;" href="#register">REGISTER</a></p>
             <form action="#" method="post">
-                <h3 id="2" style="position: relative;right: 14vh;">Email</h3>
+                <h3 id="login" style="position: relative;right: 14vh;">Email</h3>
                 <input type="email" id="email2" name="email" required>
                 <h3>Password</h3>
                 <input type="password" id="password2" name="password" required>
                 <br>
                 <button type="submit" onclick="saveData1()" class="sub">Login</button>
-                <button type="reset" class="res">Reset</button>
+                <button type="reset" class="res two">Reset</button>
             </form>
         </div>
     </div>
