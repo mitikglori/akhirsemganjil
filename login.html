@@ -97,7 +97,7 @@
             return v.email==email && v.password==password
         })){
             alert("Login Successffull")
-            let current_user=user_record.filtter((v)=>{
+            let current_user=user_record.filter((v)=>{
                 return v.email==email && v.password==password
             })[0]
             localStorage.setItem("user", current_user.user);
