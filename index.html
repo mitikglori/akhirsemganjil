@@ -6,7 +6,7 @@
     <title>Login | Ahmad Nabil's Website</title>
     <style>
         body {
-            background-image: url(download.jpeg);
+            /* background-image: url(download.jpeg); */background-color: #081b29;
             background-repeat: no-repeat;
             background-size: 100%;
             background-position: center;
@@ -37,7 +37,7 @@
             margin: 10px;
             outline: none;
             border: none;
-            border-bottom:4px solid salmon;
+            border-bottom:4px solid #00abf0;
             border-radius: 2px;
             width: 80%;
             box-sizing: border-box;
@@ -51,7 +51,7 @@
             border: none;
             border-radius: 5px;
             background-color: whitesmoke;
-            color: salmon;
+            color: #00abf0;
             font-size: 3vh;
             font-weight: bolder;
             cursor: pointer;
@@ -64,18 +64,18 @@
             border: none;
             border-radius: 5px;
             background-color: transparent;
-            color: salmon;
+            color: #00abf0;
             font-size:3vh;
             font-weight: bolder;
             cursor: pointer;
             width: 60%;
         }
         button.sub:hover {
-            background-color: salmon;
-            color: whitesmoke;
+            background-color: #00abf0;
+            color: whitesmoke;transition: .5s;
         }
         button.res:hover {
-            color: red;
+            color: red;transition: .5s;
         }
         h3 {
             margin: 0;
@@ -89,7 +89,7 @@
     <div class="container-main">
         <div class="container" id="register">
             <h1 style="color: whitesmoke; margin-bottom: 10px;">Register</h1>
-            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Already Have an Account? Click Here <a style="color: salmon;text-decoration: none;" href="#login">LOGIN</a></p>
+            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Already Have an Account? Click Here <a style="color: #00abf0;text-decoration: none;" href="#login">LOGIN</a></p>
             <form action="#" method="post">
                 <h3>Username</h3>
                 <input type="text" id="user1" name="user" required>
@@ -103,8 +103,8 @@
         </div>
         <div class="container" style="padding-top: 20vh;padding-bottom: 10vh;" >
             <h1 style="color: whitesmoke;margin-bottom: 10px;">Login</h1>
-            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Dont Have an Account? Click Here <a style="color: salmon;text-decoration: none;" href="#register">REGISTER</a></p>
-            <form action="home.html" method="post">
+            <p style="color: whitesmoke; margin: 0;margin-top: 4vh;">Dont Have an Account? Click Here <a style="color: #00abf0;text-decoration: none;" href="#register">REGISTER</a></p>
+            <form action="main.html" method="post">
                 <h3 id="login" style="position: relative;right: 14vh;">Email</h3>
                 <input type="email" id="email2" name="email" required>
                 <h3>Password</h3>
@@ -152,7 +152,7 @@
             })[0]
             localStorage.setItem("user", current_user.user);
             localStorage.setItem("email", current_user.email);
-            window.location.href="home.html";
+            window.location.href="main.html";
         }
         else {
             alert("Login Failed");
