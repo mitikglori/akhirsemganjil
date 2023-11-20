@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Nabil's Website</title>
+    <title>Home | Nabil's Website</title>
     <link rel="stylesheet" href="style-index.css">
 </head>
-<body style="background: #081b29;color: #ededed;">
+<body style="background: #081b29;color: #ededed;scroll-behavior: smooth;min-width: 320px;">
     <header class="header">
         <a href="#" class="logo">Billy.</a>
     </header>
     <div class="home">
-        <div class="home-content" style="max-width: 600px;">
-            <h1 style="font-size: 56px;font-weight: 700;line-height: 1.2;position: relative;">Hi <script>document.write(localStorage.getItem("name"));</script>, I'am Ahmad Nabil</h1>
-            <h3 style="font-size: 32px;font-weight: 700;color: #00abf0;position: relative;">Highschooler</h3>
-            <p style="font-size: 16px;margin: 20px 0 40px;position: relative;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, aliquam omnis doloribus cum provident nostrum, numquam similique dolorem, sapiente architecto iure? Iure ipsum alias unde quasi consectetur.</p>
+        <div class="home-content" style="width: 50vw;">
+            <h1 style="font-size: 4vw;font-weight: 700;line-height: 1.2;position: relative;">Hi <script>document.write(localStorage.getItem("name"));</script>, I'am Ahmad Nabil</h1>
+            <h3 style="font-size: 3vw;font-weight: 700;color: #00abf0;position: relative;">Highschooler</h3>
+            <p style="font-size: 2vh;margin: 20px 0 40px;position: relative;">Pokemon, diverse creatures with unique abilities, inhabit a vast world. Trainers capture and train them, engaging in battles and forming unbreakable bonds on their quest for mastery and friendship.</p>
             <div class="btn-box">
-                <a href="#">Hire Me</a>
+                <!-- <a href="#pageone">Start !</a> -->
                 <a href="#" onclick="logOut()">LogOut</a>
             </div>
-            <div class="home-sci">
-                <a href="#"></a>
-                <a href="#"></a>
-                <a href="#"></a>
-            </div>
-            <img style="position: absolute; right: 80px;top: 150px;height: 70vh;" src="1-removebg-preview.png" alt="">
         </div>
+        <img style="width: 40vw;max-width: 30vw;" src="1-removebg-preview.png" alt="">
     </div>
 </body>
 </html>
@@ -36,6 +31,6 @@
     })
     function logOut(){
         localStorage.removeItem("name");localStorage.removeItem("email");
-        window.location.href= "index.html"
+        window.location.href= "login.html"
     }
 </script>
