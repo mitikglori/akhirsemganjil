@@ -3,137 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main | Ahmad Nabil's Website</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        header {
-            background-color: transparent;
-            position: fixed;
-            padding: 4vh;
-            width: 100vw;height: 10vh;
-            display: flex;flex-direction: row;
-            justify-content: space-between;
-        }
-        header nav{
-            display: flex;flex-direction: row;
-            justify-content: space-between;align-items: center;
-            width: 30vw;
-            color: #333;
-            font-size: 3vh;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;font-weight: bold;
-        }
-        header > div{
-            width: 30%;
-            display: flex;flex-direction: row;
-            justify-content: space-around;align-items: center;
-        }
-        .menu-icon span {
-            display: block;
-            width: 40px;
-            height: 5px;
-            background-color: black;
-            margin: 8px auto;
-        }
-        .menu{
-            position: absolute;display: none;
-            flex-direction: column;
-            justify-content: center;align-items: center;gap: 1vh;
-            right: 0;top: 10vh;
-            width: 15vw;height: 20vh;
-            background-color: black;opacity: 0.3;
-            border-radius: 1vh;
-            scroll-behavior: smooth;
-        }
-        .menu button {
-            width: 60%;
-            height: 40%;
-            font-size: 2.5vh;
-            border-radius: 1vh;
-        }
-        .menu.show {
-            display: flex;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 2vh;
-            height: 10vh;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        main {
-            height: 90vh;
-            width: 300vw;
-            display: flex;flex-direction: row;
-        }
-        main div {
-            height: inherit;
-            width: 100vw;
-            background-color: darkmagenta;
-            display: flex;
-        }
-        #one{
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-        }
-    </style>
+    <title>Ahmad Nabil's Website</title>
+    <link rel="stylesheet" href="style-index.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#one">Intro</a>
-            <a href="#two">Stats</a>
-            <a href="#three">Best Thing</a>
+    <header class="header">
+        <a href="#" class="logo">Billy.</a>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Portofolio</a>
+            <a href="#">Contact</a>
         </nav>
-        <div>
-            <h2>Hello, <script>document.write(localStorage.getItem("user"))</script>!</h2>
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu">
-                <button onclick="logOut()">Logout</button>
-                <button onclick="light()">Lightmode</button>
-            </div>
-        </div>
     </header>
-    <main>
-        <div id="one">
-            <!-- box-shadow: 1vh 0vh 7px 7px rgb(234, 63, 194); == box shadow -->
-            <img style="width: 35%;height: 70vh;margin-top: 3vh;" src="genggar1.png" alt="image1">
-            <div style="width: 40%;height: 70vh;margin-top: 3vh;display: flex;justify-content: center;align-items: center;" class="pageone-text"><p style="font-size: 3.5vh;color: whitesmoke;margin-top: 3vh;">Gengar is a shadow-like, round-bodied Pokémon with two large, pointed ears and short spikes lining its back. Gengar has two red eyes and a toothy, sinister smile. It has claws on its hands. Gengar stands on its two short legs, but it can Levitate as well. In Mega Gengar, it has a hot pink smoke around it, and it has a 3rd yellow eye, its hands are buried in the ground, it also got more spikes in its back and tail. In Gigantamax Gengar, it has grown much larger, its red eyes turned yellow with soulless white pupils, the body hasn't changed much, but there is no physical feet visible, its hands are detached and in the ground, its huge mouth also looks like some sort of room, with a long tongue inside.</p></div>
+    <div class="home">
+        <div class="home-content">
+            <h1>Hi, I'am Ahmad Nabil</h1>
+            <h3>Highschooler</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, aliquam omnis doloribus cum provident nostrum, numquam similique dolorem, sapiente architecto iure? Iure ipsum alias unde quasi consectetur.</p>
+            <div class="btn-box">
+                <a href=""></a>
+            </div>
         </div>
-        <div id="two"></div>
-        <div id="three"></div>
-    </main>
-    <footer>
-        <p style="margin-top: 2vh;">&copy; 2023 Genggar Corp</p>
-    </footer>
+    </div>
 </body>
-<script>
-    const menu = () => {document.querySelector(".menu").classList.toggle('show');}
-    document.querySelector(".menu-icon").addEventListener('click', ()=>{menu()})
-    function logOut(){
-        localStorage.removeItem("user");
-        localStorage.removeItem("email");
-        window.location.href="index.html";
-    }
-</script>
 </html>
